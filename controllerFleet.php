@@ -18,5 +18,6 @@ $posts= array();
  		// 	echo $row['latitude'] 
 			// echo $row['longitude'] 
 		}		    	
-		
+
+require 'viewFleet.php';		
 ?>
