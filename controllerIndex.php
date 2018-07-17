@@ -12,9 +12,9 @@ $posts = array();
 $count=0;
 $errorForView=0;
 if(is_object($result))
- { $count = mysqli_num_rows($res);	
+ { $count = mysqli_num_rows($result);	
     if($count !=0)
-     {$row = mysqli_fetch_array($result))
+     {$row = mysqli_fetch_array($result);
      }
     else 
      {
