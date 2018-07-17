@@ -41,27 +41,8 @@ $result = mysqli_query($con, $sql);
 	
 	<div class="container">
 		<div class="row">
-		<?php
-		//var_dump($row = mysqli_fetch_assoc($result));
-		while ($row = mysqli_fetch_assoc($result)) { ?>
-				<div class="card float-left center-block p-4 col-sm-12 col-md-6" style="width: 19rem;">
-			  <img class="card-img-top" src="<?php echo $row['img_link'] ?>" alt="Card image cap">
-			  
-				  <div class="card-body">
-				    <h5 class="card-title"><?php //echo $row['author_id']. " " . $row['name'] ?></h5>
-				    <ul class="list-unstyled">
-				    	<li><em>Model: </em><?php echo $row['model'] ?></li>
-				    	<li><em>Latitude: </em><?php echo $row['latitude'] ?></li>
-				    	<li><em>Longitude: </em><?php echo $row['longitude'] ?></li>
-				    	
-				    	<li><a href="rent.php" class="btn btn-primary">Book me!</a></li>
-				    </ul>
-				  </div>
-				</div>
-				<?php
-		}
-
-		?>
+		<?php require'controllerFleet.php'; ?>
+				
 		</div>
 	
 	</main>
