@@ -30,27 +30,13 @@ $pass = mysqli_real_escape_string($con, $_POST['pass']);
   $passError = "Please enter your password.";
  }
 
+/*
 // if there's no error, continue to login
  if (!$error) {
   
   //$password = hash('sha256', $pass); // password hashing
 
-/*
-  $res=mysqli_query($con, "SELECT userId, first_name, last_name, pass FROM driver WHERE email='$email'");
-  $count=0;
-  //var_dump(is_object($res));
-  if(is_object($res)) {
-	$count = mysqli_num_rows($res);
-	
-    if($count !=0){
-	  $row=mysqli_fetch_array($res, MYSQLI_ASSOC);
-	  var_dump($row);
-   // if uname/pass correct it returns must be 1 row
-  }
- }else {
- 	echo "User with this e-mail were not found";
- }
-*/
+
  require 'controllerIndex.php';
  
   if( $count == 1 && $row['pass']==$pass ) {
@@ -61,7 +47,7 @@ $pass = mysqli_real_escape_string($con, $_POST['pass']);
   }
  
  }
-
+ */
 }
 ?>
 
@@ -113,6 +99,38 @@ $pass = mysqli_real_escape_string($con, $_POST['pass']);
 			
 			<button type="submit" class="btn btn-block btn-primary" name="btn_login">Login</button>
 		</form>
+		<?php  
+          if (!$error) {
+  
+  //$password = hash('sha256', $pass); // password hashing
+
+/*
+  $res=mysqli_query($con, "SELECT userId, first_name, last_name, pass FROM driver WHERE email='$email'");
+  $count=0;
+  //var_dump(is_object($res));
+  if(is_object($res)) {
+	$count = mysqli_num_rows($res);
+	
+    if($count !=0){
+	  $row=mysqli_fetch_array($res, MYSQLI_ASSOC);
+	  var_dump($row);
+   // if uname/pass correct it returns must be 1 row
+  }
+ }else {
+ 	echo "User with this e-mail were not found";
+ }
+*/
+ require 'controllerIndex.php';
+ 
+  if( $count == 1 && $row['pass']==$pass ) {
+   $_SESSION['user'] = $row['userId'];
+   header("Location: home.php");
+  } else {
+   $errMSG = "Incorrect Credentials, Try again...";
+  }
+ 
+ } 
+		?>
 		
 	</main>
 </body>
