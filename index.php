@@ -35,6 +35,7 @@ $pass = mysqli_real_escape_string($con, $_POST['pass']);
   
   //$password = hash('sha256', $pass); // password hashing
 
+/*
   $res=mysqli_query($con, "SELECT userId, first_name, last_name, pass FROM driver WHERE email='$email'");
   $count=0;
   //var_dump(is_object($res));
@@ -49,7 +50,9 @@ $pass = mysqli_real_escape_string($con, $_POST['pass']);
  }else {
  	echo "User with this e-mail were not found";
  }
-
+*/
+ require 'controllerIndex.php';
+ 
   if( $count == 1 && $row['pass']==$pass ) {
    $_SESSION['user'] = $row['userId'];
    header("Location: home.php");
