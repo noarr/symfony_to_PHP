@@ -11,6 +11,7 @@ if(isset($_SESSION['user'])!=""){
 	exit;
 }
 $error = false;
+$email="nothing";
 
 if(isset($_POST['btn_login'])) {
 

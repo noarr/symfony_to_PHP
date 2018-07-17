@@ -1,15 +1,16 @@
 <?php
 require_once'dbconnect.php';
+require 'dbaccess.php';
 $link=$con;
 
 
 $sql = "SELECT car.IMG AS img_link, car.model AS 'model', car.latitude AS 'latitude', car.longitude AS 'longitude'
 				 FROM car ";
 
-$result = mysqli_query($link, $sql);
+$result = doQuery($link, $sql);
 $posts= array();
-//var_dump($row = mysqli_fetch_assoc($result));
-		while ($row = mysqli_fetch_assoc($result)) { 
+
+		while ($row = getRowsAssoc($result)) { 
 		$posts[] = $row;
 
 		

@@ -1,20 +1,23 @@
 <?php
 
 require_once 'dbconnect.php';
+require 'dbaccess.php';
 // Connecting, selecting database
 $link=$con;
 
 // Performing SQL query
 
-$result=mysqli_query($con, "SELECT userId, first_name, last_name, pass FROM driver WHERE email='$email'");
+
+$sql="SELECT userId, first_name, last_name, pass FROM driver WHERE email='$email'";
+$result=doQuery($link,$sql);
 // Filling up the array for the view
 $posts = array();
 $count=0;
 $errorForView=0;
 if(is_object($result))
- { $count = mysqli_num_rows($result);	
+ { $count = getNumRows($result);	
     if($count !=0)
-     {$row = mysqli_fetch_array($result);
+     {$row = getRows($result);
      }
     else 
      {
@@ -28,4 +31,5 @@ mysqli_close($link);
 
 // Requiring the view
 require('viewIndex.php');
+
 
