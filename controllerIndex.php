@@ -27,7 +27,7 @@ if(is_object($result))
 
 
 // Closing connection
-mysqli_close($link);
+closeDB($link);
 
 // Requiring the view
 require('viewIndex.php');

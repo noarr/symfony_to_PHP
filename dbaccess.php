@@ -16,4 +16,7 @@ function getRowsAssoc($x){
  return mysqli_fetch_assoc($x);
 }
 
+function closeDB($c){
+ mysqli_close($c);
+}
 ?>
